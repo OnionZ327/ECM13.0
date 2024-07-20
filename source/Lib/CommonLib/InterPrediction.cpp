@@ -13532,7 +13532,7 @@ void InterPrediction::adjustMergeCandidatesBcwIdx(PredictionUnit& pu, MergeCtx& 
   const int biShift = IF_INTERNAL_PREC - pu.cu->slice->clpRng(COMPONENT_Y).bd;//位移量，用于调整像素精度
   const Pel biOffset = -IF_INTERNAL_OFFS;//偏移量，用于调整像素基准
 #endif
-  //左参考块转置（数据不连续），则可同上方块一样处理
+  //左参考块转置（数据不连续），则可同上方块一样处理，因此pcBufPredCurLeft的宽高不是正常取的;
   PelUnitBuf pcBufPredRefLeftTranspose = PelUnitBuf(pu.chromaFormat, PelBuf(pcBufPredRefLeft.Y().buf, pcBufPredRefLeft.Y().height, pcBufPredRefLeft.Y().width));
   //uiMergeCandMerge：候选项索引，mrgCtx.numValidMergeCand：候选项数量
   //遍历所有有效的Merge候选项
